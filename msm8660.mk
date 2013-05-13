@@ -34,9 +34,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
     frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
-    packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml \
-    frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
-    frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml
+    packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -95,6 +93,8 @@ PRODUCT_PACKAGES += \
 
 # Media configuration
 PRODUCT_COPY_FILES += \
+    device/htc/msm8660-common/configs/media_codecs.xml:system/etc/media_codecs.xml \
+    device/htc/msm8660-common/configs/media_profiles.xml:system/etc/media_profiles.xml \
     device/htc/msm8660-common/configs/audio_policy.conf:system/etc/audio_policy.conf
 	
 # MSM8660 firmware
@@ -110,7 +110,9 @@ PRODUCT_AAPT_PREF_CONFIG := hdpi
 # Common build properties
 PRODUCT_PROPERTY_OVERRIDES += \
     com.qc.hardware=true \
+    debug.enabletr=true \
     debug.egl.hw=1 \
+    debug.mdpcomp.maxlayer=0 \
     debug.mdpcomp.logs=0 \
     debug.sf.hw=1 \
     dev.pm.dyn_samplingrate=1 \
